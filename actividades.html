@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta content="Dairo Ortega" name"autor"="">
+    <meta content="Multimedia1" name="Descripcion">
+    <title>Sopa de letras</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/wordfind.js"></script>
+    <script type="text/javascript" src="js/wordfindgame.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/tag-it.js"></script>
+  </head>
+  <body>
+     <header>
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header"> <button type="button" class="navbar-toggle"
+
+            data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Desplegar
+              navegación</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><img
+
+              src="img/logoUNAD.png" alt=""></a> </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">INICIO</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">LECTURAS<b
+
+                  class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li> <a href="lectura1.html">TEMA 1 - INSERTION SORT</a> </li>
+                <li> <a href="lectura2.html">TEMA 2 - BUBBLE SORT</a> </li>
+                <li> <a href="lectura3.html">TEMA 3 - SHELL SORT</a> </li>
+                <li> <a href="lectura4.html">TEMA 4 - QUICT-SORT</a> </li>
+                <li> <a href="lectura5.html">TEMA 5 - HEAP-SORT</a> </li>
+                <li> <a href="lectura6.html">TEMA 6 - RADIX-SORT</a> </li>
+              </ul>
+            </li>
+            <li><a href="multimedia.html">MULTIMEDIA</a></li>
+            <li><a href="actividades.html">ACTIVIDADES</a></li>
+            <li><a href="autores.html">AUTORES</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Content -->
+    <style media="print">.ocultar {display:none;}.col-md-3 { width: 25%;float: left;}.col-md-9 {width: 75%;float: left;}
+    </style>
+    <div class="container">
+      <div class="row">
+        <script type="text/javascript">
+            var mytag;
+            $(document).ready(function () {
+                mytag = $("#myTags").tagit({});
+        Crear();
+            });
+</script> <div class="row  ocultar text-center"> <br>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <ul id="myTags">
+                <li>INSERTIONSORT</li>
+                <li>BUBBLESORT</li>
+                <li>SHELLSORT</li>
+                <li>QUICKSORT</li>
+                <li>HEAPSORT</li>
+                <li>RADIXSORT</li>
+              </ul>
+              <p>ACTIVIDAD 1    </p>
+              <p>Sopa de letras Curso de Métodos de Ordenamiento </p>
+            </div>
+          </div>
+        </div>
+        
+       
+          <div>
+            <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="ocultar"> <button onclick="Crear();" class="btn btn-success btn-lg">
+                      NUEVO</button> <button onclick="window.print();" class="btn btn-info btn-lg ">
+                      IMPRIMIR</button> <button id="solve" class="btn btn-danger btn-lg">
+                      SOLUCION</button>
+                    <!-- <a href="#" class="btn btn-default btn-lg" > Descargar</a>-->
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div id="Palabras"></div>
+                    </div>
+                    <div class="col-md-9">
+                      <div id="juego"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+    var words = [];
+  var gamePuzzle;
+  function Crear() {
+    
+      datos = mytag[0].textContent.trim().split("×");
+        
+      for (i = 0; i < (datos.length)-1; i++) {
+         words.push(datos[i]);
+
+      }
+      $('#Juegos').show();
+      gamePuzzle = wordfindgame.create(datos, '#juego', '#Palabras');
+      var puzzle = wordfind.newPuzzle(datos, { height: 18, width: 18, fillBlanks: false });
+        wordfind.print(puzzle);   
+      }
+    $('#solve').click( function() {wordfindgame.solve(gamePuzzle, words);});
+    </script> </div>
+          <hr>
+          <footer class="">
+            <div class="container">
+              <p class="text-center">DISEÑOS DE SITIOS WEB - Grupo 301122_41</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
